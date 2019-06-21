@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int dominantIndex(vector<int>& nums) {
+        int larger = 0;
+        int largest = 0;
+        int index = 0;
+        for (int i = 0; i < nums.size(); i++){
+            if (nums[i] > largest){
+                index = i;
+                larger = largest;
+                largest = nums[i];        
+            }
+            else if (nums[i] > larger){       
+                larger = nums[i];        
+            }
+        }
+        if (larger + larger <= largest){
+            return index;
+        }
+        return -1;
+    }
+};
